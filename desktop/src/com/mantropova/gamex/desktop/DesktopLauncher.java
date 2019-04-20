@@ -14,8 +14,8 @@ public class DesktopLauncher {
 
 		config.title = "FunnyBeavers";
 
-		config.width = 854;
-		config.height = 480;
+		config.width = 1280;
+		config.height = 720;
 		config.x = 100;
 		config.y = 100;
 

@@ -6,15 +6,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mantropova.gamex.model.Beaver;
-
-import javax.xml.soap.Text;
 
 public class GameScreen implements Screen {
 
     private Texture beaverTexture;
     private SpriteBatch batch;
-    private Beaver beaver;
     private OrthographicCamera camera;
 
     @Override
@@ -22,19 +18,12 @@ public class GameScreen implements Screen {
         batch = new SpriteBatch();
         beaverTexture = new Texture(Gdx.files.internal("Images/mole.png"));
         beaverTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        beaver = new Beaver(beaverTexture, 0, 0, 2f, 2f * 1f);
     }
 
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.setProjectionMatrix(camera.combined);
-        batch.begin();
-        beaver.draw(batch);
-        batch.end();
-
     }
 
     @Override
