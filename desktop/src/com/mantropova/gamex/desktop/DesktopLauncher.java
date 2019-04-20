@@ -6,7 +6,7 @@ package com.mantropova.gamex.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.mantropova.gamex.Main;
+import com.mantropova.gamex.FunnyBeavers;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
@@ -19,6 +19,6 @@ public class DesktopLauncher {
 		config.x = 100;
 		config.y = 100;
 
-		new LwjglApplication(new Main(), config);
+		new LwjglApplication(new FunnyBeavers(), config);
 	}
 }

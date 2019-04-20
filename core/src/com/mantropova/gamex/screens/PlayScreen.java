@@ -5,13 +5,13 @@ package com.mantropova.gamex.screens;
  */
 
 import com.badlogic.gdx.Screen;
-import com.mantropova.gamex.Main;
+import com.mantropova.gamex.FunnyBeavers;
 
 public class PlayScreen implements Screen {
 
-    private Main game;
+    private FunnyBeavers game;
 
-    public PlayScreen(Main game) {
+    public PlayScreen(FunnyBeavers game) {
         this.game = game;
     }
 

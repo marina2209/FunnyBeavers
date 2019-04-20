@@ -4,7 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-public class Main extends Game {
+public class FunnyBeavers extends Game {
 
 	private Screen gameScreen;
 

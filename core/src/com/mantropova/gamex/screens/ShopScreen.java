@@ -7,11 +7,11 @@ package com.mantropova.gamex.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.mantropova.gamex.Main;
+import com.mantropova.gamex.FunnyBeavers;
 
 public class ShopScreen implements Screen {
 
-    public ShopScreen(final Main game) {
+    public ShopScreen(final FunnyBeavers game) {
     }
 
 

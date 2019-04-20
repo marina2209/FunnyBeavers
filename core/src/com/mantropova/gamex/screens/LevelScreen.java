@@ -7,13 +7,13 @@ package com.mantropova.gamex.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.mantropova.gamex.Main;
+import com.mantropova.gamex.FunnyBeavers;
 
 class LevelScreen implements Screen {
 
-    private Main game;
+    private FunnyBeavers game;
 
-    public LevelScreen(final Main game) {
+    public LevelScreen(final FunnyBeavers game) {
         this.game = game;
     }
 
