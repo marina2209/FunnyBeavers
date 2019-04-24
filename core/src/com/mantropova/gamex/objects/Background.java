@@ -46,5 +46,26 @@ public class Background extends Actor {
 
     @Override
     public void draw(Batch batch, float alpha) {
+        backgroundSprite.draw(batch);
+        float x = 0;
+        while (x < screenWidth){
+            mushroomrSprite.draw(batch);
+            mushroomrSprite.setPosition(x, 65f);
+            x += 10f;
+            mushroombSprite.draw(batch);
+            mushroombSprite.setPosition(x , 65f);
+            x += 10f;
+            mushroomwSprite.draw(batch);
+            mushroomwSprite.setPosition(x , 65f);
+            x += 10f;
+        }
+        int y = screenHeight;
+        while (y - pine.getHeight() > 100f) {
+            y -= pine.getHeight();
+            pineSprite.setPosition(20f, y);
+            pineSprite.draw(batch);
+            oakSprite.setPosition(screenWidth - assets.oak.getWidth() - 20f, y);
+            oakSprite.draw(batch);
+        }
     }
 }

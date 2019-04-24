@@ -3,6 +3,7 @@ package com.mantropova.gamex;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.mantropova.gamex.screens.MainMenuScreen;
 
 public class FunnyBeavers extends Game {
 
@@ -10,7 +11,7 @@ public class FunnyBeavers extends Game {
 
 	@Override
 	public void create() {
-		gameScreen = new GameScreen();
+		gameScreen = new MainMenuScreen(this);
 		setScreen(gameScreen);
 	}
 }
