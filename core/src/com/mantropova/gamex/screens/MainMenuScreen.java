@@ -24,7 +24,7 @@ public class MainMenuScreen implements Screen {
 
     private Stage stage;
 
-    public MainMenuScreen(final FunnyBeavers game) {
+    public MainMenuScreen() {
         AssetsLoader assets = AssetsLoader.getInstance();
         stage = new Stage(new ScreenViewport());
         Background background = new Background();
@@ -38,7 +38,7 @@ public class MainMenuScreen implements Screen {
         Table table = new Table();
         table.setFillParent(true);
 
-        TextButton play = new TextButton("Play", game.skin);
+        TextButton play = new TextButton("Play", AssetsLoader.getGame().skin);
         play.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -47,12 +47,12 @@ public class MainMenuScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new ShopScreen(game));
+                AssetsLoader.getGame().setScreen(new ShopScreen());
                 dispose();
             }
         });
 
-        TextButton settings = new TextButton("Settings", game.skin);
+        TextButton settings = new TextButton("Settings", AssetsLoader.getGame().skin);
         settings.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -61,12 +61,12 @@ public class MainMenuScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new SettingsScreen(game));
+                AssetsLoader.getGame().setScreen(new SettingsScreen());
                 dispose();
             }
         });
 
-        TextButton exit = new TextButton("Exit", game.skin);
+        TextButton exit = new TextButton("Exit", AssetsLoader.getGame().skin);
         exit.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {

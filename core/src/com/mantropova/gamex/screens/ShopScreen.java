@@ -34,7 +34,7 @@ public class ShopScreen implements Screen {
     private Coins coins = new Coins();
     private String weaponType = "";
 
-    public ShopScreen(final FunnyBeavers game) {
+    public ShopScreen() {
 
         stage = new Stage(new ScreenViewport());
         Skin skin = new Skin();
@@ -166,7 +166,7 @@ public class ShopScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new LevelScreen(game));
+                AssetsLoader.getGame().setScreen(new LevelScreen());
             }
         });
 

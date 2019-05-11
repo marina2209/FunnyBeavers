@@ -9,6 +9,7 @@ import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
+import com.mantropova.gamex.FunnyBeavers;
 
 public class AssetsLoader {
     public Texture moleAlive;
@@ -27,6 +28,7 @@ public class AssetsLoader {
     public Texture buttonoff;
     public Texture pauseButton;
     public Texture mark;
+    private FunnyBeavers game = null;
 
     private AssetsLoader() {
         moleAlive = new Texture(Gdx.files.internal("images/mole.png"));
@@ -82,5 +84,13 @@ public class AssetsLoader {
         if (!prefs.contains("ShovelLevel")) {
             prefs.putInteger("ShovelLevel", 1) ;  prefs.flush();
         }
+    }
+
+    public static FunnyBeavers getGame() {
+        return getInstance().game;
+    }
+
+    public static void setGame(FunnyBeavers game) {
+        getInstance().game = game;
     }
 }

@@ -6,13 +6,11 @@ package com.mantropova.gamex.screens;
 
 import com.badlogic.gdx.Screen;
 import com.mantropova.gamex.FunnyBeavers;
+import com.mantropova.gamex.helpers.AssetsLoader;
 
 public class PlayScreen implements Screen {
 
-    private FunnyBeavers game;
-
-    public PlayScreen(FunnyBeavers game) {
-        this.game = game;
+    public PlayScreen() {
     }
 
     public void show() {
@@ -34,6 +32,6 @@ public class PlayScreen implements Screen {
     }
 
     public void dispose() {
-        game.dispose();
+        AssetsLoader.getGame().dispose();
     }
 }

@@ -7,18 +7,18 @@ package com.mantropova.gamex.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mantropova.gamex.FunnyBeavers;
+import com.mantropova.gamex.helpers.AssetsLoader;
 import com.mantropova.gamex.objects.Background;
 
 class LevelScreen implements Screen {
 
-    private FunnyBeavers game;
     private Background background;
     private Stage stage;
 
-    public LevelScreen(final FunnyBeavers game) {
-        this.game = game;
+    public LevelScreen() {
 
         background = new Background();
         background.setPosition(0f, 0f);
@@ -60,6 +60,6 @@ class LevelScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
-        game.dispose();
+        AssetsLoader.getGame().dispose();
     }
 }
