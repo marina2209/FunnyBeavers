@@ -13,7 +13,7 @@ public class Shovel extends Weapon {
     private Player player;
 
     public Shovel(Player player) {
-        AssetsLoader assets = new AssetsLoader();
+        AssetsLoader assets = AssetsLoader.getInstance();
         this.player = player;
         damage = assets.getPrefs().getInteger("ShovelDamage");
         level = assets.getPrefs().getInteger("ShovelLevel");

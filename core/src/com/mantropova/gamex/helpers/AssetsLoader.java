@@ -28,7 +28,7 @@ public class AssetsLoader {
     public Texture pauseButton;
     public Texture mark;
 
-    private void load() {
+    private AssetsLoader() {
         moleAlive = new Texture(Gdx.files.internal("images/mole.png"));
         moleDead = new Texture(Gdx.files.internal("images/hole.png"));
         background = new Texture(Gdx.files.internal("images/collage.jpg"));
@@ -45,6 +45,22 @@ public class AssetsLoader {
         buttonon = new Texture(Gdx.files.internal("images/ButtonOn.png"));
         pauseButton = new Texture(Gdx.files.internal("images/ButtonOn.png"));
         mark = new Texture(Gdx.files.internal("images/mark.png"));
+        loadWeapons();
+        if (!prefs.contains("Coins")) {
+            prefs.putInteger("Coins", 0); prefs.flush();
+        }
+        if(!prefs.contains("Music")){
+            prefs.putBoolean("Music", true); prefs.flush();
+        }
+    }
+
+    private static AssetsLoader _instance = null;
+
+    public static AssetsLoader getInstance() {
+        if (_instance == null) {
+            _instance = new AssetsLoader();
+        }
+        return _instance;
     }
 
     private Preferences prefs = Gdx.app.getPreferences("FunnyBeavers");

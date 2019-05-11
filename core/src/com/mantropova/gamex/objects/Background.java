@@ -25,7 +25,7 @@ public class Background extends Actor {
     private Sprite pineSprite;
     private Texture oak;
     private Sprite oakSprite;
-    private AssetsLoader assets = new AssetsLoader();
+    private AssetsLoader assets = AssetsLoader.getInstance();
     int screenWidth = Gdx.graphics.getWidth();
     int screenHeight = Gdx.graphics.getHeight();
 

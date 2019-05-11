@@ -39,7 +39,7 @@ public class ShopScreen implements Screen {
         stage = new Stage(new ScreenViewport());
         Skin skin = new Skin();
         //skin.add("default", game.levels);
-        AssetsLoader assets = new AssetsLoader();
+        AssetsLoader assets = AssetsLoader.getInstance();
         skin.add("ButtonOn", assets.buttonon);
         skin.add("ButtonOff", assets.buttonoff);
         skin.add("Mark", assets.mark);

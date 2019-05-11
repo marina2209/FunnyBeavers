@@ -25,7 +25,7 @@ public class MainMenuScreen implements Screen {
     private Stage stage;
 
     public MainMenuScreen(final FunnyBeavers game) {
-        AssetsLoader assets = new AssetsLoader();
+        AssetsLoader assets = AssetsLoader.getInstance();
         stage = new Stage(new ScreenViewport());
         Background background = new Background();
         background.setPosition(0f, 0f);
