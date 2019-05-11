@@ -5,6 +5,7 @@ package com.mantropova.gamex.helpers;
  */
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
@@ -44,6 +45,26 @@ public class AssetsLoader {
         buttonon = new Texture(Gdx.files.internal("images/ButtonOn.png"));
         pauseButton = new Texture(Gdx.files.internal("images/ButtonOn.png"));
         mark = new Texture(Gdx.files.internal("images/mark.png"));
+    }
 
+    private Preferences prefs = Gdx.app.getPreferences("FunnyBeavers");
+
+    public Preferences getPrefs() {
+        return prefs;
+    }
+
+    private void loadWeapons() {
+        if (!prefs.contains("HammerDamage")) {
+            prefs.putInteger("HammerDamage", 20); prefs.flush();
+        }
+        if (!prefs.contains("HammerLevel")) {
+            prefs.putInteger("HammerLevel", 1); prefs.flush();
+        }
+        if (!prefs.contains("ShovelDamage")) {
+            prefs.putInteger("ShovelDamage", 10); prefs.flush();
+        }
+        if (!prefs.contains("ShovelLevel")) {
+            prefs.putInteger("ShovelLevel", 1) ;  prefs.flush();
+        }
     }
 }
