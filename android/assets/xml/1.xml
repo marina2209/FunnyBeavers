@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<level>
+    <delay>2500</delay>
+    <health>25</health>
+    <attack>10</attack>
+    <positions>
+        <position x="70" y="40" />
+        <position x="45" y="40" />
+        <position x="20" y="40" />
+        <position x="70" y="65" />
+        <position x="45" y="65" />
+        <position x="20" y="65" />
+        <position x="70" y="90" />
+        <position x="45" y="90" />
+        <position x="20" y="90" />
+    </positions>
+</level>

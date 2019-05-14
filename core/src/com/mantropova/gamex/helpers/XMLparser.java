@@ -49,9 +49,19 @@ public class XMLparser {
     }
 
     public List<float[]> getPos(String strLevel) {
-        delay = 1;
-        moleAttack = 1;
-        moleHealth = 1;
+        try {
+            XmlReader.Element root = (new XmlReader()).parse(Gdx.files.internal("xml/"+strLevel+".xml"));
+            this.moleAttack = Integer.parseInt(root.getChildrenByName("attack").get(0).getText());
+            this.moleHealth = Integer.parseInt(root.getChildrenByName("health").get(0).getText());
+            this.delay = Long.parseLong(root.getChildrenByName("delay").get(0).getText());
+            Array<XmlReader.Element> xml_pos = root.getChildByName("positions").getChildrenByName("position");
+            for (XmlReader.Element el : xml_pos) {
+                this.starsPos.add(new float[]{ Float.parseFloat(el.getAttribute("x")),
+                        Float.parseFloat(el.getAttribute("y"))});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return this.starsPos;
     }
 
