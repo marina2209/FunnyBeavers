@@ -5,6 +5,8 @@ package com.mantropova.gamex.objects;
  */
 
 import com.badlogic.gdx.utils.Array;
+import com.mantropova.gamex.helpers.XMLparser;
+
 import java.util.*;
 
 public class Level {
@@ -21,6 +23,9 @@ public class Level {
     public Level(String level) {
         this.level = Integer.parseInt(level);
         coins = new Coins();
+
+        XMLparser xml = new XMLparser();
+        List<float[]> posArray = xml.getPos(level);
 
         timer = new Timer();
         timer.schedule(new TimerTask() {

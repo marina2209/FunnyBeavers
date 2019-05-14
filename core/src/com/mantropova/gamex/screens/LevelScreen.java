@@ -7,19 +7,22 @@ package com.mantropova.gamex.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.mantropova.gamex.FunnyBeavers;
+import com.badlogic.gdx.utils.Array;
 import com.mantropova.gamex.helpers.AssetsLoader;
 import com.mantropova.gamex.objects.Background;
+import com.mantropova.gamex.helpers.XMLparser;
 
 class LevelScreen implements Screen {
 
     private Background background;
     private Stage stage;
+    private Array<String> levels;
 
     public LevelScreen() {
 
+        XMLparser parseLevels = new XMLparser();
+        levels = parseLevels.XMLparseLevels();
         background = new Background();
         background.setPosition(0f, 0f);
         stage.addActor(background);
