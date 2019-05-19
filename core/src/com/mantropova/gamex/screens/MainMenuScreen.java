@@ -3,8 +3,10 @@ package com.mantropova.gamex.screens;
 /**
  * Created by Antropova Marina on 17.04.2019.
  */
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -15,7 +17,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.mantropova.gamex.FunnyBeavers;
 import com.mantropova.gamex.helpers.AssetsLoader;
 import com.mantropova.gamex.objects.Background;
 
@@ -26,12 +27,21 @@ public class MainMenuScreen implements Screen {
 
     public MainMenuScreen() {
         AssetsLoader assets = AssetsLoader.getInstance();
+
+        Music music = assets.music;
+        if (assets.getPrefs().getBoolean("Music") && (music != null)) {
+            music.play();
+            music.setVolume(1f);
+            music.setLooping(true);
+        }
+
         stage = new Stage(new ScreenViewport());
         Background background = new Background();
         background.setPosition(0f, 0f);
         stage.addActor(background);
 
         Label.LabelStyle labelStyle = new Label.LabelStyle();
+        labelStyle.font = AssetsLoader.getGame().font;
         labelStyle.fontColor = Color.WHITE;
         Label label = new Label("KILL THE MOLE", labelStyle);
         label.setAlignment(Align.center);
@@ -79,6 +89,7 @@ public class MainMenuScreen implements Screen {
                 dispose();
             }
         });
+
         table.add(label).width(400f).center();
         table.row().height(100f);
         table.add(play).width(400f);
