@@ -26,6 +26,7 @@ public class Shovel extends Weapon {
 
     @Override
     public void extraAttack() {
-        if (player.health < 100) player.health += damage / 5;
+        if (player.health < 100)
+            player.health += damage / 5;
     }
 }

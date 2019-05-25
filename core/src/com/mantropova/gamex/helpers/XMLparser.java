@@ -11,11 +11,9 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.XmlReader;
 import java.util.*;
 
-
 public class XMLparser {
 
     private List<float[]> starsPos = new ArrayList<float[]>();
-
     private long delay = 1;
     private int moleHealth = 1;
     private int moleAttack = 1;
@@ -50,11 +48,13 @@ public class XMLparser {
 
     public List<float[]> getPos(String strLevel) {
         try {
-            XmlReader.Element root = (new XmlReader()).parse(Gdx.files.internal("xml/"+strLevel+".xml"));
+            XmlReader.Element root =
+                    (new XmlReader()).parse(Gdx.files.internal("xml/"+strLevel+".xml"));
             this.moleAttack = Integer.parseInt(root.getChildrenByName("attack").get(0).getText());
             this.moleHealth = Integer.parseInt(root.getChildrenByName("health").get(0).getText());
             this.delay = Long.parseLong(root.getChildrenByName("delay").get(0).getText());
-            Array<XmlReader.Element> xml_pos = root.getChildByName("positions").getChildrenByName("position");
+            Array<XmlReader.Element> xml_pos =
+                    root.getChildByName("positions").getChildrenByName("position");
             for (XmlReader.Element el : xml_pos) {
                 this.starsPos.add(new float[]{ Float.parseFloat(el.getAttribute("x")),
                         Float.parseFloat(el.getAttribute("y"))});
@@ -72,6 +72,7 @@ public class XMLparser {
     public int getHealth() {
         return moleHealth;
     }
+
     public int getAttack() {
         return moleAttack;
     }

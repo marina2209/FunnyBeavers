@@ -34,7 +34,6 @@ public class Player {
         moleKilled = 0;
     }
 
-
     public void getHurted(int amount) {
         health -= amount;
         Gdx.app.log("CorrentHealth", Integer.toString(health));

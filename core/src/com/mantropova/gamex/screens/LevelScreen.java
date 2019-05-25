@@ -41,10 +41,12 @@ class LevelScreen implements Screen {
 
         for(int i = 0; i < levels.size; i++) {
             final String cur_level = levels.get(i);
-            TextButton level = new TextButton(cur_level + " level", AssetsLoader.getGame().skin);
+            TextButton level = new TextButton(cur_level + " level",
+                                                AssetsLoader.getGame().skin);
             level.addListener(new ClickListener() {
                 @Override
-                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                public boolean touchDown(InputEvent event, float x, float y, int pointer,
+                                         int button) {
                     return true;
                 }
 
@@ -62,7 +64,6 @@ class LevelScreen implements Screen {
 
         Gdx.input.setInputProcessor(stage);
         Gdx.input.setCatchBackKey(true);
-
     }
 
     @Override

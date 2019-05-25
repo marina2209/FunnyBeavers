@@ -52,17 +52,18 @@ public class Level {
         for (Mole mole : molesArray) {
             mole.setBounds(
                     Gdx.graphics.getWidth() * posArray.get(i)[0] / 100,
-                    Gdx.graphics.getHeight() * posArray.get(i)[1] / 100 - mole.getImg().getHeight() / 2,
+                    Gdx.graphics.getHeight() * posArray.get(i)[1] / 100 -
+                            mole.getImg().getHeight() / 2,
                     mole.getImg().getWidth(),
                     mole.getImg().getHeight()
             );
             i++;
         }
-
     }
 
     public int update(float delta) {
-        if (player.health < 1) isGameOver = true;
+        if (player.health < 1)
+            isGameOver = true;
         for (Mole mole : molesArray)
             mole.update(delta);
         return player.moleKilled;

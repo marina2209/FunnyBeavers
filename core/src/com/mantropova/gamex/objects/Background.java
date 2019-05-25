@@ -13,6 +13,7 @@ import com.mantropova.gamex.helpers.AssetsLoader;
 
 
 public class Background extends Actor {
+
     private Sprite backgroundSprite;
     private Sprite mushroomrSprite;
     private Sprite mushroombSprite;

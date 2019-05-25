@@ -20,6 +20,7 @@ import com.mantropova.gamex.objects.Level;
 import com.mantropova.gamex.objects.Mole;
 
 public class PlayScreen implements Screen {
+
     private Level level;
     private Stage stage;
     private boolean flag;
@@ -65,7 +66,6 @@ public class PlayScreen implements Screen {
                 pause();
             }
         });
-
 
         level = new Level(numOfLevel, weapon);
         flag = true;
@@ -114,8 +114,10 @@ public class PlayScreen implements Screen {
 
     private Table pauseGameActor() {
         if (isMusicOn) {
-            if (music != null) music.pause();
-            if (sound2!= null) sound2.play();
+            if (music != null)
+                music.pause();
+            if (sound2!= null)
+                sound2.play();
         }
 
         final Table table = new Table();
@@ -141,10 +143,12 @@ public class PlayScreen implements Screen {
 
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 AssetsLoader.getGame().setScreen(new MainMenuScreen());
-                if (sound2 != null) sound2.stop();
+                if (sound2 != null)
+                    sound2.stop();
                 dispose();
             }
         });
+
         table.add(retry);
         table.row();
         table.add(mainMenu);
@@ -163,8 +167,10 @@ public class PlayScreen implements Screen {
 
     private Table endGameActor() {
         if (isMusicOn) {
-            if (music != null) music.pause();
-            if (sound2!= null) sound2.play();
+            if (music != null)
+                music.pause();
+            if (sound2!= null)
+                sound2.play();
         }
 
         Table table = new Table();
@@ -180,7 +186,8 @@ public class PlayScreen implements Screen {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 AssetsLoader.getGame().setScreen(new PlayScreen(numOfLevel, weapon));
-                if (sound2 != null) sound2.pause();
+                if (sound2 != null)
+                    sound2.pause();
                 dispose();
             }
         });
@@ -194,13 +201,16 @@ public class PlayScreen implements Screen {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 AssetsLoader.getGame().setScreen(new MainMenuScreen());
-                if (sound2 != null) sound2.stop();
+                if (sound2 != null)
+                    sound2.stop();
                 dispose();
             }
         });
+
         Label score = new Label("Your score: " + level.player.moleKilled , labelStyle);
         Label money = new Label(
-                "Your money: " + level.player.moleKilled * Integer.parseInt(numOfLevel), labelStyle);
+                "Your money: " + level.player.moleKilled * Integer.parseInt(numOfLevel),
+                labelStyle);
 
         table.add(score);
         table.row();
@@ -232,7 +242,6 @@ public class PlayScreen implements Screen {
             stage.act(delta);
             stage.draw();
         }
-
     }
 
     @Override

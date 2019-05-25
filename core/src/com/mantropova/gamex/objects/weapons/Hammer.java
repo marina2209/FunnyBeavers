@@ -8,6 +8,7 @@ import com.mantropova.gamex.objects.Player;
  */
 
 public class Hammer extends  Weapon {
+
     public Hammer(Player player) {
         AssetsLoader assets = AssetsLoader.getInstance();
         damage = assets.getPrefs().getInteger("HammerDamage");

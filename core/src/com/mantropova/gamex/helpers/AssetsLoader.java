@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mantropova.gamex.FunnyBeavers;
 
 public class AssetsLoader {
+
     public Texture moleAlive;
     public Texture moleDead;
     public Texture background;
@@ -73,16 +74,20 @@ public class AssetsLoader {
 
     private void loadWeapons() {
         if (!prefs.contains("HammerDamage")) {
-            prefs.putInteger("HammerDamage", 20); prefs.flush();
+            prefs.putInteger("HammerDamage", 20);
+            prefs.flush();
         }
         if (!prefs.contains("HammerLevel")) {
-            prefs.putInteger("HammerLevel", 1); prefs.flush();
+            prefs.putInteger("HammerLevel", 1);
+            prefs.flush();
         }
         if (!prefs.contains("ShovelDamage")) {
-            prefs.putInteger("ShovelDamage", 10); prefs.flush();
+            prefs.putInteger("ShovelDamage", 10);
+            prefs.flush();
         }
         if (!prefs.contains("ShovelLevel")) {
-            prefs.putInteger("ShovelLevel", 1) ;  prefs.flush();
+            prefs.putInteger("ShovelLevel", 1) ;
+            prefs.flush();
         }
     }
 

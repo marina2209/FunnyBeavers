@@ -17,6 +17,7 @@ import com.mantropova.gamex.helpers.AssetsLoader;
 import java.util.*;
 
 public class Mole extends Actor {
+
     private Sprite img;
     private Sprite imgAlive;
     private Sprite imgDead;
@@ -27,7 +28,6 @@ public class Mole extends Actor {
     private Player player;
     private int damage;
     private int health;
-
 
     public Mole(float ourX, float ourY, final Player player, int health, int damage,
                 final boolean isMusicOn) {

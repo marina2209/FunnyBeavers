@@ -56,7 +56,6 @@ public class ShopScreen implements Screen {
         markButton.font = skin.getFont("default");
         skin.add("Mark", markButton);
 
-
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.up = skin.newDrawable("ButtonOn");
         textButtonStyle.down = skin.newDrawable("ButtonOn");
@@ -64,7 +63,6 @@ public class ShopScreen implements Screen {
         textButtonStyle.over = skin.newDrawable("ButtonOn");
         textButtonStyle.font = skin.getFont("default");
         skin.add("default", textButtonStyle);
-
 
         markHammer = new TextButton("", markButton);
         markShovel = new TextButton("", markButton);
@@ -85,7 +83,8 @@ public class ShopScreen implements Screen {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 weaponType = "Hammer";
                 markHammer.setVisible(true);
-                if (markShovel.isVisible()) markShovel.setVisible(false);
+                if (markShovel.isVisible())
+                    markShovel.setVisible(false);
             }
         });
         int currentCost = curLev * 2;
@@ -113,6 +112,7 @@ public class ShopScreen implements Screen {
                 }
             }
         });
+
         curLev = pref.getInteger("ShovelLevel");
         shovel = new TextButton("Shovel, lvl: " + curLev, skin);
         shovel.addListener(new ClickListener() {
@@ -125,9 +125,11 @@ public class ShopScreen implements Screen {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 weaponType = "Shovel";
                 markShovel.setVisible(true);
-                if (markHammer.isVisible()) markHammer.setVisible(false);
+                if (markHammer.isVisible())
+                    markHammer.setVisible(false);
             }
         });
+
         currentCost = curLev * 3;
         shovelLevelUp = new TextButton(Integer.toString(currentCost), skin);
         shovelLevelUp.addListener(new ClickListener() {
@@ -150,6 +152,7 @@ public class ShopScreen implements Screen {
                 }
             }
         });
+
         table.row().height(100f);
         table.add(markHammer).width(75f);
         table.add(hammer).width(550f);

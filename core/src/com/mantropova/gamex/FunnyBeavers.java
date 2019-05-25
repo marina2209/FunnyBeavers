@@ -20,8 +20,10 @@ public class FunnyBeavers extends Game {
 	public void create() {
 		AssetsLoader.setGame(this);
 
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/alpha_echo.ttf"));
-		FreeTypeFontGenerator.FreeTypeFontParameter param = new FreeTypeFontGenerator.FreeTypeFontParameter();
+		FreeTypeFontGenerator generator =
+				new FreeTypeFontGenerator(Gdx.files.internal("fonts/alpha_echo.ttf"));
+		FreeTypeFontGenerator.FreeTypeFontParameter param =
+				new FreeTypeFontGenerator.FreeTypeFontParameter();
 		param.size = Gdx.graphics.getHeight() / 10;
 		param.characters = FONT_CHARACTERS;
 		font = generator.generateFont(param);

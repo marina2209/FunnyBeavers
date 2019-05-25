@@ -5,6 +5,7 @@ package com.mantropova.gamex.objects.weapons;
  */
 
 public abstract class Weapon{
+
     int damage;
     int level;
 

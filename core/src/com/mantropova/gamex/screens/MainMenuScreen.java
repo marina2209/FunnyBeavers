@@ -20,7 +20,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mantropova.gamex.helpers.AssetsLoader;
 import com.mantropova.gamex.objects.Background;
 
-
 public class MainMenuScreen implements Screen {
 
     private Stage stage;

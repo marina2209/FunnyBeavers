@@ -18,6 +18,7 @@ import com.mantropova.gamex.helpers.AssetsLoader;
 import com.mantropova.gamex.objects.Background;
 
 public class SettingsScreen implements Screen {
+
     private Stage stage;
     private AssetsLoader assets = AssetsLoader.getInstance();
 
@@ -30,8 +31,10 @@ public class SettingsScreen implements Screen {
         Table table = new Table();
         table.setFillParent(true);
 
-        final TextButton music = new TextButton("Music: " + (assets.getPrefs().getBoolean("Music")
-                ? "on" : "off"), AssetsLoader.getGame().skin);
+        final TextButton music = new TextButton(
+                "Music: " + (assets.getPrefs().getBoolean("Music") ? "on" : "off"),
+                AssetsLoader.getGame().skin);
+
         music.addListener(new ClickListener() {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
@@ -42,11 +45,13 @@ public class SettingsScreen implements Screen {
                 if (!flag) {
                     music.setText("Music: on");
                     assets.getPrefs().putBoolean("Music", true);
-                    if (musicPlayScreen != null) musicPlayScreen.play();
+                    if (musicPlayScreen != null)
+                        musicPlayScreen.play();
                 } else {
                     music.setText("Music: off");
                     assets.getPrefs().putBoolean("Music", false);
-                    if (musicPlayScreen != null) musicPlayScreen.pause();
+                    if (musicPlayScreen != null)
+                        musicPlayScreen.pause();
                 }
                 assets.getPrefs().flush();
             }
