@@ -28,7 +28,7 @@ public class MainMenuScreen implements Screen {
     public MainMenuScreen() {
         AssetsLoader assets = AssetsLoader.getInstance();
 
-        Music music = assets.music;
+        final Music music = assets.music;
         if (assets.getPrefs().getBoolean("Music") && (music != null)) {
             music.play();
             music.setVolume(1f);
@@ -71,7 +71,7 @@ public class MainMenuScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                AssetsLoader.getGame().setScreen(new SettingsScreen());
+                AssetsLoader.getGame().setScreen(new SettingsScreen(music));
                 dispose();
             }
         });
