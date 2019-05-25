@@ -5,12 +5,11 @@ package com.mantropova.gamex.screens;
  */
 
 import com.badlogic.gdx.Screen;
-import com.mantropova.gamex.FunnyBeavers;
 import com.mantropova.gamex.helpers.AssetsLoader;
 
 public class PlayScreen implements Screen {
 
-    public PlayScreen() {
+    public PlayScreen(String numOfLevel, String weapon) {
     }
 
     public void show() {

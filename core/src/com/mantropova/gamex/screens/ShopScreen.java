@@ -5,6 +5,7 @@ package com.mantropova.gamex.screens;
  */
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -16,7 +17,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.mantropova.gamex.FunnyBeavers;
 import com.mantropova.gamex.helpers.AssetsLoader;
 import com.mantropova.gamex.objects.Background;
 import com.mantropova.gamex.objects.Coins;
@@ -31,15 +31,16 @@ public class ShopScreen implements Screen {
     private TextButton markHammer;
     private TextButton markShovel;
     private Label moneyLabel;
-    private Coins coins = new Coins();
     private String weaponType = "";
+    private AssetsLoader assets = AssetsLoader.getInstance();
+    private Preferences pref = assets.getPrefs();
+    private Coins coins = new Coins();
 
-    public ShopScreen() {
+    ShopScreen() {
 
         stage = new Stage(new ScreenViewport());
         Skin skin = new Skin();
-        //skin.add("default", game.levels);
-        AssetsLoader assets = AssetsLoader.getInstance();
+        skin.add("default", AssetsLoader.getGame().levels);
         skin.add("ButtonOn", assets.buttonon);
         skin.add("ButtonOff", assets.buttonoff);
         skin.add("Mark", assets.mark);
@@ -55,6 +56,7 @@ public class ShopScreen implements Screen {
         markButton.font = skin.getFont("default");
         skin.add("Mark", markButton);
 
+
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.up = skin.newDrawable("ButtonOn");
         textButtonStyle.down = skin.newDrawable("ButtonOn");
@@ -63,6 +65,7 @@ public class ShopScreen implements Screen {
         textButtonStyle.font = skin.getFont("default");
         skin.add("default", textButtonStyle);
 
+
         markHammer = new TextButton("", markButton);
         markShovel = new TextButton("", markButton);
         markHammer.setVisible(true);
@@ -70,8 +73,8 @@ public class ShopScreen implements Screen {
         Table table = new Table();
         table.setFillParent(true);
 
-        int curLev = 1 ; //pref.getInteger("HammerLevel"); TODO
-        hammer = new TextButton("Hammer, lvl: " + 1 /* TODO pref.getInteger("HammerLevel")*/, skin);
+        int curLev = pref.getInteger("HammerLevel");
+        hammer = new TextButton("Hammer, lvl: " + pref.getInteger("HammerLevel"), skin);
         hammer.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -96,19 +99,21 @@ public class ShopScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                int curLev = 1;
+                int curLev = pref.getInteger("HammerLevel");
                 int currentCost = curLev * 2;
                 if (coins.spendCoins(currentCost)) {
+                    pref.putInteger("HammerLevel", curLev + 1);
                     curLev++;
                     currentCost = curLev * 2;
                     hammerLevelUp.setText(Integer.toString(currentCost));
                     currentCost = curLev * 2;
                     hammerLevelUp.setText(Integer.toString(currentCost));
                     hammer.setText("Hammer, lvl: " + curLev);
+                    pref.flush();
                 }
             }
         });
-        curLev = 1;
+        curLev = pref.getInteger("ShovelLevel");
         shovel = new TextButton("Shovel, lvl: " + curLev, skin);
         shovel.addListener(new ClickListener() {
             @Override
@@ -133,13 +138,15 @@ public class ShopScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                int curLev = 1;
+                int curLev = pref.getInteger("ShovelLevel");
                 int currentCost = curLev * 3;
                 if (coins.spendCoins(currentCost)) {
+                    pref.putInteger("ShovelLevel", curLev + 1);
                     curLev++;
                     currentCost = curLev * 3;
                     shovelLevelUp.setText(Integer.toString(currentCost));
                     shovel.setText("Shovel, lvl: " + curLev);
+                    pref.flush();
                 }
             }
         });
@@ -166,7 +173,7 @@ public class ShopScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                AssetsLoader.getGame().setScreen(new LevelScreen());
+                AssetsLoader.getGame().setScreen(new LevelScreen(weaponType));
             }
         });
 
@@ -176,6 +183,7 @@ public class ShopScreen implements Screen {
         stage.addActor(table2);
 
         Label.LabelStyle labelStyle = new Label.LabelStyle();
+        labelStyle.font = AssetsLoader.getGame().font;
         labelStyle.fontColor = Color.WHITE;
         moneyLabel = new Label("MONEY: " + coins.amount, labelStyle);
         Table moneyTable = new Table();
@@ -188,7 +196,7 @@ public class ShopScreen implements Screen {
         Gdx.input.setCatchBackKey(true);
     }
 
-
+    @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -197,21 +205,27 @@ public class ShopScreen implements Screen {
         stage.draw();
     }
 
+    @Override
     public void resize(int width, int height) {
     }
 
+    @Override
     public void show() {
     }
 
+    @Override
     public void hide() {
     }
 
+    @Override
     public void pause() {
     }
 
+    @Override
     public void resume() {
     }
 
+    @Override
     public void dispose() {
         stage.dispose();
     }
