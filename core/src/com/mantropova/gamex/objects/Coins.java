@@ -10,14 +10,17 @@ import com.badlogic.gdx.Preferences;
 public class Coins{
 
     public int amount;
+    private Preferences pref = Gdx.app.getPreferences("FunnyBeavers");
 
     public Coins() {
-        amount = 1;
+        amount = pref.getInteger("Coins");
     }
 
     public boolean spendCoins(int amount){
         if (amount <= this.amount){
             this.amount -= amount;
+            pref.putInteger("Coins", this.amount);
+            pref.flush();
             return true;
         }
         else return false;
@@ -25,5 +28,7 @@ public class Coins{
 
     public void addCoins(int amount){
         this.amount += amount;
+        pref.putInteger("Coins", this.amount);
+        pref.flush();
     }
 }
