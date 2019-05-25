@@ -13,34 +13,29 @@ import com.mantropova.gamex.helpers.AssetsLoader;
 
 
 public class Background extends Actor {
-    private Texture backgroundTexture;
     private Sprite backgroundSprite;
-    private Texture mushroomr;
     private Sprite mushroomrSprite;
-    private Texture mushroomb;
     private Sprite mushroombSprite;
-    private Texture mushroomw;
     private Sprite mushroomwSprite;
     private Texture pine;
     private Sprite pineSprite;
-    private Texture oak;
     private Sprite oakSprite;
     private AssetsLoader assets = AssetsLoader.getInstance();
     int screenWidth = Gdx.graphics.getWidth();
     int screenHeight = Gdx.graphics.getHeight();
 
     public Background() {
-        backgroundTexture = assets.background;
+        Texture backgroundTexture = assets.background;
         backgroundSprite = new Sprite(backgroundTexture, screenWidth, screenHeight);
-        mushroomr = assets.mushroomred;
+        Texture mushroomr = assets.mushroomred;
         mushroomrSprite = new Sprite(mushroomr);
-        mushroomb = assets.mushroombrown;
+        Texture mushroomb = assets.mushroombrown;
         mushroombSprite = new Sprite(mushroomb);
-        mushroomw = assets.mushroomwhite;
+        Texture mushroomw = assets.mushroomwhite;
         mushroomwSprite = new Sprite(mushroomw);
         pine = assets.pine;
         pineSprite = new Sprite(pine);
-        oak = assets.oak;
+        Texture oak = assets.oak;
         oakSprite = new Sprite(oak);
     }
 
