@@ -20,7 +20,7 @@ public class Level {
     private Coins coins;
     private int level;
 
-    public Level(String level) {
+    public Level(String level, String weapon) {
         this.level = Integer.parseInt(level);
         coins = new Coins();
 
