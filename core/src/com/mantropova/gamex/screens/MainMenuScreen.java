@@ -28,7 +28,7 @@ public class MainMenuScreen implements Screen {
         AssetsLoader assets = AssetsLoader.getInstance();
 
         final Music music = assets.music;
-        if (assets.getPrefs().getBoolean("Music") && (music != null)) {
+        if (assets.getPrefs().getBoolean("music") && (music != null)) {
             music.play();
             music.setVolume(1f);
             music.setLooping(true);

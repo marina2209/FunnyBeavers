@@ -45,7 +45,7 @@ public class Level {
         for (i = 0; i < posArray.size(); i++) {
             molesArray.add(new Mole(posArray.get(i)[0], posArray.get(i)[1],
                                     player, xml.getHealth(), xml.getAttack(),
-                                    assets.getPrefs().getBoolean("Music")));
+                                    assets.getPrefs().getBoolean("music")));
         }
 
         i = 0;

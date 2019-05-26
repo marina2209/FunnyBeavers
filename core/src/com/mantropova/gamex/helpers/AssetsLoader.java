@@ -41,9 +41,9 @@ public class AssetsLoader {
         mushroombrown = new Texture(Gdx.files.internal("images/mushroom_brown.png"));
         pine = new Texture(Gdx.files.internal("images/tree_pine.png"));
         oak = new Texture(Gdx.files.internal("images/tree_oak.png"));
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/music1.ogg"));
-        sound1 = Gdx.audio.newSound(Gdx.files.internal("music/sound1.wav"));
-        sound2 = Gdx.audio.newSound(Gdx.files.internal("music/sound2.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("music1.ogg"));
+        sound1 = Gdx.audio.newSound(Gdx.files.internal("sound1.wav"));
+        sound2 = Gdx.audio.newSound(Gdx.files.internal("sound2.mp3"));
         buttonoff = new Texture(Gdx.files.internal("images/ButtonOff.png"));
         buttonon = new Texture(Gdx.files.internal("images/ButtonOn.png"));
         pauseButton = new Texture(Gdx.files.internal("images/ButtonOn.png"));
@@ -52,8 +52,8 @@ public class AssetsLoader {
         if (!prefs.contains("Coins")) {
             prefs.putInteger("Coins", 0); prefs.flush();
         }
-        if(!prefs.contains("Music")){
-            prefs.putBoolean("Music", true); prefs.flush();
+        if(!prefs.contains("music")){
+            prefs.putBoolean("music", true); prefs.flush();
         }
     }
 

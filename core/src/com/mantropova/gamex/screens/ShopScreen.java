@@ -155,11 +155,11 @@ public class ShopScreen implements Screen {
 
         table.row().height(100f);
         table.add(markHammer).width(75f);
-        table.add(hammer).width(550f);
+        table.add(hammer).width(850f);
         table.add(hammerLevelUp).width(200f);
         table.row().height(100f);
         table.add(markShovel).width(75f);
-        table.add(shovel).width(550f);
+        table.add(shovel).width(850f);
         table.add(shovelLevelUp).width(200f);
         table.center();
         stage.addActor(table);

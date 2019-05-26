@@ -32,7 +32,7 @@ public class SettingsScreen implements Screen {
         table.setFillParent(true);
 
         final TextButton music = new TextButton(
-                "Music: " + (assets.getPrefs().getBoolean("Music") ? "on" : "off"),
+                "music: " + (assets.getPrefs().getBoolean("music") ? "on" : "off"),
                 AssetsLoader.getGame().skin);
 
         music.addListener(new ClickListener() {
@@ -41,15 +41,15 @@ public class SettingsScreen implements Screen {
             }
 
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                boolean flag = assets.getPrefs().getBoolean("Music");
+                boolean flag = assets.getPrefs().getBoolean("music");
                 if (!flag) {
-                    music.setText("Music: on");
-                    assets.getPrefs().putBoolean("Music", true);
+                    music.setText("music: on");
+                    assets.getPrefs().putBoolean("music", true);
                     if (musicPlayScreen != null)
                         musicPlayScreen.play();
                 } else {
-                    music.setText("Music: off");
-                    assets.getPrefs().putBoolean("Music", false);
+                    music.setText("music: off");
+                    assets.getPrefs().putBoolean("music", false);
                     if (musicPlayScreen != null)
                         musicPlayScreen.pause();
                 }

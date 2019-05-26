@@ -41,7 +41,7 @@ public class PlayScreen implements Screen {
         pauseTable = pauseGameActor();
 
         AssetsLoader assets = AssetsLoader.getInstance();
-        isMusicOn = assets.getPrefs().getBoolean("Music");
+        isMusicOn = assets.getPrefs().getBoolean("music");
         music = assets.music;
         if (isMusicOn && (music != null)) {
             music.play();
